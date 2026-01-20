@@ -1,0 +1,148 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(120deg, #e6e6e6, #f7f7f7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+/* Título principal */
+.titulo {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #2f2f2f;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Contenedor del formulario */
+.contenedor {
+    position: relative;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
+    padding: 35px 30px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: aparecer 1s ease;
+}
+
+/* Animación de entrada */
+.animar {
+    animation: aparecer 0.8s ease forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Logos flotantes */
+.logos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.logo {
+    width: 70px; /* Aumentamos un poco */
+    height: 70px;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Título dentro del formulario */
+.contenedor h2 {
+    font-size: 1.5rem;
+    margin-bottom: 22px;
+    color: #444;
+}
+
+/* Inputs y select */
+input, select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #bcbcbc;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #146c43;
+    box-shadow: 0 0 8px rgba(20,108,67,0.5);
+    outline: none;
+}
+
+/* Botón principal */
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #5a5a5a, #3f3f3f);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #3f3f3f, #5a5a5a);
+}
+
+/* ----- Media Queries para pantallas pequeñas ----- */
+@media (max-width: 600px) {
+    .titulo {
+        font-size: 2.2rem;
+    }
+    .contenedor {
+        padding: 25px 20px;
+        width: 95%;
+    }
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+    .contenedor h2 {
+        font-size: 1.3rem;
+    }
+    input, select {
+        padding: 12px;
+        font-size: 14px;
+    }
+    button {
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
+ 

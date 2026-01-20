@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Servicios Bancarios | Web Academy</title>
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f3d2e, #146c43, #1e8f5f);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ===== LOGOS SUPERIORES CON EFECTO ===== */
+.logo {
+    position: fixed;
+    top: 5px; /* Más arriba */
+    width: 120px;
+    opacity: 0.95;
+    z-index: 20;
+    animation: brillar 2.5s infinite alternate;
+}
+
+.logo-izq { left: 20px; }
+.logo-der { right: 20px; }
+
+@keyframes brillar {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.4)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255,255,255,0.4)); }
+}
+
+/* ===== FONDO DECORATIVO ===== */
+.fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.fondo span {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(100,255,180,0.25);
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.fondo span:nth-child(1){top:5%; left:10%;}
+.fondo span:nth-child(2){top:40%; left:5%;}
+.fondo span:nth-child(3){top:15%; right:10%;}
+.fondo span:nth-child(4){bottom:10%; right:5%;}
+.fondo span:nth-child(5){bottom:30%; left:45%;}
+
+/* ICONOS DECORATIVOS */
+.iconos {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    color: rgba(255,255,255,0.08);
+    font-size: 40px;
+}
+.iconos span { position: absolute; }
+.iconos span:nth-child(1){top:10%; left:15%;}
+.iconos span:nth-child(2){top:20%; right:20%; font-size:60px;}
+.iconos span:nth-child(3){top:45%; left:8%; font-size:50px;}
+.iconos span:nth-child(4){bottom:25%; right:15%; font-size:65px;}
+.iconos span:nth-child(5){bottom:10%; left:30%;}
+.iconos span:nth-child(6){top:60%; left:55%; font-size:55px;}
+.iconos span:nth-child(7){top:8%; right:40%;}
+.iconos span:nth-child(8){bottom:6%; right:45%; font-size:45px;}
+.iconos span:nth-child(9){top:38%; right:35%; font-size:38px;}
+.iconos span:nth-child(10){bottom:42%; left:60%;}
+
+/* ===== TITULO ===== */
+.titulo {
+    text-align: center;
+    margin: 30px 0 10px;
+    font-size: 36px;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== MENU ===== */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.menu a {
+    color: #86efac;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+.menu a:hover { background: #22c55e; color: white; }
+
+/* ===== RECUADRO ===== */
+.portada {
+    width: 420px;
+    margin: 40px auto;
+    padding: 35px;
+    background: rgba(0,0,0,0.65);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.portada h2 { color: #86efac; }
+.portada p { line-height: 1.6; }
+
+.portada button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #22c55e;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+}
+.portada button:hover { background: #16a34a; }
+
+/* ===== SECCIONES ===== */
+.seccion {
+    min-height: 100vh;
+    padding: 90px 15%;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.seccion h2 {
+    font-size: 30px;
+    color: #86efac;
+}
+
+.seccion p {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Logos grandes con efecto -->
+<img src="logo.png" class="logo logo-izq">
+<img src="logo.png" class="logo logo-der">
+
+<!-- FONDOS -->
+<div class="fondo">
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="iconos">
+    <span>🏦</span>
+    <span>💳</span>
+    <span>📈</span>
+    <span>💼</span>
+    <span>📊</span>
+    <span>💵</span>
+    <span>USD</span>
+    <span>MXN</span>
+    <span>€</span>
+    <span>%</span>
+</div>
+
+<h1 class="titulo">SERVICIOS BANCARIOS</h1>
+
+<div class="menu">
+    <a href="#observacion">Prácticas de Observación</a>
+    <a href="#ejecucion">Prácticas de Ejecución</a>
+    <a href="#estadias">Estadías</a>
+    <a href="#servicio">Servicio Social</a>
+</div>
+
+<div class="portada">
+    <h2>Carrera de Servicios Bancarios</h2>
+    <p>
+        Formación en operaciones financieras, atención al cliente,
+        productos bancarios, créditos y gestión económica.
+    </p>
+    <button onclick="window.location='index.html'">
+        ⬅ Regresar al menú principal
+    </button>
+</div>
+
+<section id="observacion" class="seccion">
+    <h2>👁️ Prácticas de Observación</h2>
+
+    <p>
+        El objetivo principal de la Práctica de Observación en la carrera de Servicios
+        Bancarios es el análisis directo y sistemático del entorno financiero, con la
+        finalidad de comprender el funcionamiento real de una institución bancaria sin
+        intervenir en sus operaciones.
+    </p>
+
+    <p><strong>Propósitos específicos:</strong></p>
+
+    <p>
+        🔹 <strong>Comprensión de procesos operativos:</strong> Observación del flujo de
+        transacciones como depósitos, retiros, pagos y transferencias, así como el cuadre
+        de efectivo al cierre de la jornada.
+    </p>
+
+    <p>
+        🔹 <strong>Análisis del servicio al cliente:</strong> Identificación de técnicas de
+        atención, protocolos de calidad y procesos de satisfacción y fidelización
+        aplicados por promotores y asesores bancarios.
+    </p>
+
+    <p>
+        🔹 <strong>Identificación de productos y servicios:</strong> Conocimiento de los
+        instrumentos financieros vigentes (cuentas de ahorro, créditos, seguros y
+        servicios FinTech) y su presentación a los usuarios.
+    </p>
+
+    <p>
+        🔹 <strong>Reconocimiento de la normativa y seguridad:</strong> Observación de la
+        aplicación de leyes, normas y protocolos de ciberseguridad y protección de datos
+        que rigen al sector financiero en 2026.
+    </p>
+
+    <p>
+        🔹 <strong>Vinculación teoría–realidad:</strong> Contraste entre los conocimientos
+        adquiridos en el aula y la práctica profesional diaria en instituciones del
+        sector público y privado.
+    </p>
+
+    <p>
+        🔹 <strong>Modelado profesional:</strong> Identificación de funciones y
+        responsabilidades de los distintos perfiles laborales del banco (ejecutivos,
+        cajeros, asesores y personal administrativo).
+    </p>
+
+    <p>
+        En síntesis, la Práctica de Observación permite al estudiante recopilar
+        información y evidencias cualitativas sobre el quehacer financiero, con el fin de
+        elaborar un diagnóstico previo a las etapas de ejecución y estadía.
+    </p>
+
+    <p><strong>Constancia:</strong><br>
+        Al finalizar esta práctica, se otorgará una constancia de asistencia emitida por
+        la institución educativa.
+    </p>
+</section>
+
+
+<section id="ejecucion" class="seccion">
+    <h2>🛠️ Prácticas de Ejecución</h2>
+
+    <p>
+        El objetivo de la Práctica de Ejecución en la carrera de Servicios Bancarios es
+        transitar de la formación teórica al desempeño operativo, demostrando la capacidad
+        del estudiante para manejar productos y servicios financieros bajo estándares
+        reales de eficiencia, legalidad y ética profesional.
+    </p>
+
+    <p>
+        A diferencia de la Práctica de Observación, en esta etapa el alumno asume un rol
+        activo dentro de la institución financiera, con los siguientes objetivos
+        específicos:
+    </p>
+
+    <p>
+        🔹 <strong>1. Ejecución de Operaciones Bancarias</strong><br>
+        • <strong>Gestión de caja:</strong> Registro de depósitos, retiros, pagos en efectivo
+        y operaciones de cambio de divisas.  
+        <br>
+        • <strong>Cuadre de valores:</strong> Cierre diario de operaciones mediante la
+        conciliación del efectivo físico con los saldos del sistema.  
+        <br>
+        • <strong>Trámite de documentos:</strong> Manejo de chequeras, pagarés, contratos de
+        crédito y demás títulos de valor conforme a la normativa vigente.
+    </p>
+
+    <p>
+        🔹 <strong>2. Comercialización y Asesoría Financiera</strong><br>
+        • <strong>Promoción de productos:</strong> Orientación y venta de cuentas de ahorro,
+        tarjetas de crédito, seguros e instrumentos de inversión de acuerdo con el perfil
+        del cliente.  
+        <br>
+        • <strong>Acompañamiento digital:</strong> Apoyo a los usuarios en el uso de banca
+        móvil, carteras electrónicas y transferencias, fundamentales en el entorno
+        financiero de 2026.
+    </p>
+
+    <p>
+        🔹 <strong>3. Aplicación de Normativa y Seguridad</strong><br>
+        • <strong>Prevención de riesgos:</strong> Cumplimiento de protocolos para evitar
+        fraudes, suplantación de identidad y operaciones de lavado de dinero.  
+        <br>
+        • <strong>Atención al cliente:</strong> Resolución de dudas y reclamos bajo
+        estándares de calidad, confidencialidad y ética profesional.
+    </p>
+
+    <p>
+        🔹 <strong>4. Evaluación de Competencias Laborales</strong><br>
+        • <strong>Certificación práctica:</strong> Evidenciar que el estudiante cuenta con
+        las habilidades necesarias para desempeñarse como auxiliar, cajero o promotor
+        bancario.  
+        <br>
+        • <strong>Validación profesional:</strong> Evaluación directa por un asesor de la
+        institución financiera y entrega de reportes conforme al programa de estudios.
+    </p>
+
+    <p><strong>Requisitos para la realización de las Prácticas de Ejecución:</strong></p>
+
+    <p>
+        📄 <strong>Carta de presentación:</strong> Documento emitido por la institución
+        educativa para presentar formalmente al estudiante ante el escenario donde
+        realizará sus prácticas.
+    </p>
+
+    <p>
+        📄 <strong>Carta de aceptación:</strong> Documento expedido por la institución
+        financiera que autoriza al alumno a realizar sus prácticas.
+    </p>
+
+    <p>
+        📄 <strong>Constancia de competencias laborales:</strong> Documento emitido por la
+        institución receptora que certifica el cumplimiento de las horas establecidas por
+        la escuela (generalmente 100 horas).
+    </p>
+</section>
+
+
+<section id="servicio" class="seccion">
+    <h2>🤝 Servicio Social</h2>
+
+    <p>
+        Para el estudiante de la carrera técnica en Servicios Bancarios, el
+        Servicio Social es una actividad obligatoria que integra la formación profesional
+        con la responsabilidad ciudadana, permitiendo aplicar los conocimientos adquiridos
+        en beneficio de la sociedad.
+    </p>
+
+    <p><strong>Objetivos principales:</strong></p>
+
+    <p>
+        🔹 <strong>1. Retribución y Sentido Social</strong><br>
+        • <strong>Inclusión financiera:</strong> Apoyo a sectores vulnerables, como adultos
+        mayores y comunidades rurales, en el uso de cajeros automáticos, aplicaciones
+        bancarias y herramientas digitales, contribuyendo a reducir la brecha tecnológica.  
+        <br>
+        • <strong>Cultura financiera:</strong> Participación en programas de educación
+        financiera para fomentar el ahorro, el manejo responsable del dinero y la
+        prevención de fraudes.
+    </p>
+
+    <p>
+        🔹 <strong>2. Aplicación de Competencias Administrativas</strong><br>
+        • <strong>Gestión de trámites y valores:</strong> Apoyo en la recepción de pagos,
+        manejo de formatos financieros y control de presupuestos en instituciones
+        públicas.  
+        <br>
+        • <strong>Atención al usuario:</strong> Orientación a la población sobre trámites
+        administrativos y financieros, aplicando principios de calidad y ética
+        profesional.
+    </p>
+
+    <p>
+        🔹 <strong>3. Desarrollo de Valores Profesionales</strong><br>
+        • <strong>Ética y transparencia:</strong> Manejo responsable de información
+        confidencial y recursos económicos.  
+        <br>
+        • <strong>Solidaridad:</strong> Fortalecimiento de la conciencia de servicio y
+        compromiso social.
+    </p>
+
+    <p>
+        🔹 <strong>4. Cumplimiento Normativo y Académico</strong><br>
+        • <strong>Requisito de titulación:</strong> Acreditación de <strong>480 horas</strong>
+        obligatorias de Servicio Social para la obtención del título de Técnico en
+        Servicios Bancarios.  
+        <br>
+        • <strong>Vinculación institucional:</strong> Fortalecimiento de la relación entre
+        la escuela y las dependencias públicas donde se realiza el servicio.
+    </p>
+
+    <p>
+        En síntesis, mientras que la Práctica de Ejecución se orienta al “saber trabajar”,
+        el Servicio Social se enfoca en el “saber servir”, utilizando los conocimientos
+        bancarios para generar un impacto positivo en la sociedad.
+    </p>
+
+    <p><strong>Requisitos para realizar el Servicio Social (CBT):</strong></p>
+
+    <p>
+        📄 <strong>Solicitud:</strong> Documento emitido por la institución educativa para
+        iniciar el trámite.
+    </p>
+
+    <p>
+        📄 <strong>Carta de presentación:</strong> Expedida por la escuela para presentar al
+        estudiante ante la institución receptora.
+    </p>
+
+    <p>
+        📄 <strong>Carta de aceptación:</strong> Documento emitido por el escenario donde se
+        realizará el Servicio Social.
+    </p>
+
+    <p>
+        📄 <strong>Carta de término:</strong> Expedida por la institución receptora al
+        concluir las 480 horas reglamentarias.
+    </p>
+
+    <p>
+        📄 <strong>Informe global:</strong> Elaborado y validado por la escuela como
+        comprobante del cumplimiento de actividades.
+    </p>
+
+    <p>
+        📄 <strong>Constancia:</strong> Documento oficial emitido por la institución
+        educativa que acredita la liberación del Servicio Social.
+    </p>
+</section>
+
+
+<section id="estadias" class="seccion">
+    <h2>🏢 Estadías</h2>
+
+    <p>
+        Para un estudiante de la carrera de <strong>Técnico en Servicios Bancarios</strong>, las estadías representan la etapa final de su formación académica, donde se integra plenamente a una institución financiera para demostrar que posee las competencias necesarias para desempeñarse en el ámbito laboral real.
+    </p>
+
+    <p><strong>1. Consolidación de Competencias Profesionales</strong></p>
+    <p>
+        🔹 <strong>Operación bancaria real:</strong> Participación en procesos de apertura de cuentas, colocación de créditos, gestión de inversiones y manejo de divisas bajo supervisión profesional.<br>
+        🔹 <strong>Dominio tecnológico:</strong> Uso de sistemas CORE bancarios y plataformas financieras modernas vigentes en 2026.
+    </p>
+
+    <p><strong>2. Solución de Problemas mediante un Proyecto</strong></p>
+    <p>
+        🔹 <strong>Optimización de procesos:</strong> Proponer estrategias para mejorar tiempos de atención en ventanilla o migración de clientes a servicios digitales.<br>
+        🔹 <strong>Memoria de estadía:</strong> Elaboración de un informe técnico que documente las actividades y resultados, utilizado para titulación.
+    </p>
+
+    <p><strong>3. Acreditación de Idoneidad Laboral</strong></p>
+    <p>
+        🔹 Evaluación del desempeño por parte de la institución financiera.<br>
+        🔹 Validación del perfil de egreso ante la institución educativa.
+    </p>
+
+    <p><strong>4. Transición al Mercado Laboral</strong></p>
+    <p>
+        🔹 Obtener experiencia profesional formal en el sector financiero.<br>
+        🔹 Desarrollo de habilidades de comunicación, ventas, negociación y resolución de conflictos con clientes reales.
+    </p>
+
+    <p><strong>Duración:</strong> 180 horas mínimas.</p>
+
+    <p><strong>Requisitos:</strong></p>
+    <p>
+        📄 Solicitud emitida por la escuela.<br>
+        📄 Carta de presentación emitida por la escuela.<br>
+        📄 Carta de aceptación emitida por la institución financiera.<br>
+        📄 Carta de término emitida por la institución financiera.<br>
+        📄 Informe o memoria de estadía.<br>
+        📄 Constancia oficial de liberación emitida por la escuela.
+    </p>
+</section>
+
+
+
+</body>
+</html>
