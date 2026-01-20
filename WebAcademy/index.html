@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Academy</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Título principal -->
+    <h1 class="titulo">Web Academy</h1>
+
+    <!-- Formulario principal -->
+    <div class="contenedor animar">
+
+        <!-- Logos superiores -->
+        <img src="logo.png" class="logo logo-izq">
+        <img src="logo.png" class="logo logo-der">
+
+        <h2>Nombre de usuario</h2>
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre"
+        >
+
+        <label for="carrera">Carrera:</label>
+        <select id="carrera">
+            <option value="">Selecciona una opción</option>
+            <option value="informatica.html">INFORMATICA</option>
+            <option value="servicios.html">SERVICIOS BANCARIOS</option>
+            <option value="gastronomia.html">GASTRONOMIA</option>
+        </select>
+
+        <button type="button" onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function siguiente() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const carrera = document.getElementById("carrera").value;
+
+            if (nombre === "" || carrera === "") {
+                alert("Por favor escribe tu nombre y selecciona una carrera");
+                return;
+            }
+
+            window.location.href = carrera;
+        }
+    </script>
+
+</body>
+
+
+</html>
+
